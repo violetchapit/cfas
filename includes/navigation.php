@@ -1,7 +1,7 @@
 
-<img src="img/hpheader.jpg" alt="Home Page Header"  width="100%" height="300">
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 		<div class="container">
 			  
 	  <a class="navbar-brand" href="index.php">CFAS</a>
@@ -27,9 +27,6 @@
 	    </ul>
 
 	    <ul class="navbar-nav">
-	      <li>
-	      	<a class= "nav-link" href= "financialaccounting.php">Financial Accounting</a>
-	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="login.php">Login</a>
 	      </li>
@@ -41,3 +38,4 @@
 	  </div>
 	  </div>
 	</nav>
+	<!-- <img src="img/hpheader.jpg" alt="Home Page Header"  width="100%" height="300"> -->

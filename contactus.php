@@ -3,7 +3,6 @@
 
 	<?php include('includes/navigation.php'); ?>
 
-	<br><br> 
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -20,32 +19,38 @@
 				  	<br> 4/5 Kuala Terengganu, 98719 Terengganu </p>
 
 				  	<h2>Frequently Asked Question Forms</h2>
-						<form action= mailto: "mrafiq22298@gmail.com" method= "post" enctype="text/plain">
-						  First name:<br>
-						  <input type="text" name="firstname" value=" ">
-						  <br>
-						  Last name:<br>
-						  <input type="text" name="lastname" value=" ">
-						  <br>
-						  E-Mail: <br>
-						  <input type="text" name="email" value=" ">
-						  <br>
-						  Question: <br>
-						  <textarea rows="5" cols="70">
-							
-						  </textarea>
-						  <br>
-						  <br>
-						  <input type="submit" value="Submit">
-						  <input type="reset" value="Reset">
-						</form> 
+
+				  	<form action="" method="post">
+				  		<div class="row">
+				  			<div class="col-lg-6">
+				  				
+				  			
+				  		<div class="form-group">
+				  			<label>First Name</label>
+				  			<input type="text" name="firstname" class="form-control" placeholder="First Name">
+				  		</div>
+				  		<div class="form-group">
+				  			<label>Last Name</label>
+				  			<input type="text" name="lastname" class="form-control" placeholder="Last Name">
+				  		</div>
+				  		<div class="form-group">
+				  			<label>Email</label>
+				  			<input type="email" name="email" class="form-control" placeholder="Your Email">
+				  		</div>
+				  		<div class="form-group">
+				  			<label>Subject</label>
+				  			<textarea name="subject" placeholder="Question" class="form-control" rows="10"></textarea>
+				  			
+				  		</div>
+				  		</div>
+				  		</div>
+				  	</form>
+						
 				  </p>
 				  <hr class="my-4">
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<br><br> 
 
 <?php include('includes/footer.php'); ?>
