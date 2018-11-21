@@ -20,13 +20,16 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
   $fetch_query = mysqli_query($conn, $query);
 
   while ($row = mysqli_fetch_assoc($fetch_query)) {
-    
+
+    $db_id = $row['id'];
     $db_username = $row['username'];
     $db_password = $row['password'];
     $db_email = $row['email'];
   }
 
   if ($username === $db_username && $password === $db_password) {
+
+    $_SESSION['id'] = $db_id;
     $_SESSION['user'] = $db_username;
     $_SESSION['email'] = $db_email;
 

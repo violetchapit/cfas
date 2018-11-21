@@ -9,6 +9,8 @@
 $message = "";
 
 
+
+
   if (isset($_POST['register'])) {
 
   $first_name   = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -21,39 +23,18 @@ $message = "";
   $password     = mysqli_real_escape_string($conn, $_POST['password']);
 
 
-  $query = "SELECT * FROM users ";
-  $query .= "WHERE email = '$email' ";
-  $fetch_query = mysqli_query($conn, $query);
+  $query = "INSERT INTO users(first_name, last_name, company_name, ssm_number, phone_number, username, email, password) ";
 
-  while ($row = mysqli_fetch_assoc($fetch_query)) {
-    
-    $db_email      = $row['email'];
-    $db_ssm_number = $row['ssm_number'];
-  }
+  $query .= "VALUES('$first_name', '$last_name', '$company_name', '$ssm_number', '$phone_number', '$username', '$email', '$password')";
 
-  if ($ssm_number === $db_ssm_number) {
-    $message = "This ssm number already registered";
-  }
+  $result = mysqli_query($conn, $query);
 
-  if ($email === $db_email) {
-    $message = "This email already registered";
-  } elseif($ssm_number === $db_ssm_number) {
-
-    $message = "This ssm number already registered";
+  if (!$query) {
+    die('Query failed' . mysqli_error($conn));
+    exit();
   } else {
-
-    $query = "INSERT INTO users(first_name, last_name, company_name, ssm_number, phone_number, username, email, password) ";
-
-    $query .= "VALUES('$first_name', '$last_name', '$company_name', '$ssm_number', '$phone_number', '$username', '$email', '$password')";
-
-    $result = mysqli_query($conn, $query);
-
-    if (!$query) {
-      die('Query failed' . mysqli_error($conn));
-    } else {
-      $message = "Successfully registered";
-    }
-  } 
+    $message = "Successfully registered";
+  }
 
 
 
@@ -96,19 +77,22 @@ $message = "";
 
               <input type="text" class="form-control mb-2" placeholder="Company Name" required autofocus name="company_name">
 
-              <input type="text" class="form-control mb-2" placeholder="SSM Number" required autofocus name="ssm_number">
+              <input type="text" class="form-control mb-2" placeholder="SSM Number" required autofocus name="ssm_number" id="ssm_number" onblur="check_ssm()">
+              <span id="ssm_check" style="font-size: 12px;"></span>
 
-              <input type="text" class="form-control mb-2" placeholder="Phone Number" required autofocus name="phone_number">
+              <input type="text" class="form-control mb-2" placeholder="Phone Number" required autofocus name="phone_number" id="phone_number" maxlength="11">
 
-              <input type="text" class="form-control mb-2" placeholder="Username" required autofocus name="username">
+              <input type="text" class="form-control mb-2" placeholder="Username" required autofocus name="username" id="username" onblur="check_username()">
+              <span id="username_check" style="font-size: 12px;"></span>
 
-              <input type="email" class="form-control mb-2" placeholder="Email" required autofocus name="email">
+              <input type="email" class="form-control mb-2" placeholder="Email" required autofocus name="email" id="email" onblur="check_email()">
+              <span id="email_check" style="font-size: 12px;"></span>
 
               <input type="password" class="form-control mb-2" placeholder="Password" required autofocus name="password">
 
               
-              <button class="btn btn-lg btn-primary btn-block mb-1" type="submit" name="register">Register</button>
-              <button class="btn btn-lg btn-default btn-block mb-1" type="reset" name="reset">Reset</button>
+              <button class="btn btn-lg btn-primary btn-block mb-1" type="submit" name="register" id="register">Register</button>
+              <button class="btn btn-lg btn-default btn-block mb-1" type="reset" name="reset" id="reset">Reset</button>
               <label class="checkbox float-left">
                 <input type="checkbox" value="remember-me">
                 Remember me
@@ -128,4 +112,64 @@ $message = "";
 
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+
+    $(document).ready(function(){
+       $('#phone_number').keyup(function(){
+        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+        });
+    });
+  
+ 
+
+      function check_ssm(){
+
+        $('#loading').show();
+        $.ajax({
+
+          url: 'action.php',
+          type: 'POST',
+          data: 'ssm_number='+$("#ssm_number").val(),
+          success: function(data){
+
+            $('#ssm_check').html(data);
+            $('#loading').hide();
+          }
+        });
+      }
+
+      function check_email(){
+
+        $('#loading').show();
+        $.ajax({
+
+          url: 'action.php',
+          type: 'POST',
+          data: 'email='+$("#email").val(),
+          success: function(data){
+
+            $('#email_check').html(data);
+            $('#loading').hide();
+          }
+        });
+      }
+
+      function check_username(){
+
+        $('#loading').show();
+        $.ajax({
+
+          url: 'action.php',
+          type: 'POST',
+          data: 'username='+$("#username").val(),
+          success: function(data){
+
+            $('#username_check').html(data);
+            $('#loading').hide();
+          }
+        });
+      }
+
+  </script>
 </html>
+
