@@ -31,7 +31,11 @@
                     
                     case 'manage_employee':
                         include('includes/manage_employee.php');
-                        break; 
+                        break;
+
+                    case 'edit_ledgertable':
+                         include('includes/edit_ledgertable.php');
+                         break;     
 
                     case 'view_report':
                         include('includes/view_report.php');
