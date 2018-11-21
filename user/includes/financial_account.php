@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Ledger</h1>
+        <h1 class="page-header">Financial Account</h1>
     </div>
 </div>
 
@@ -30,18 +30,36 @@
 						<tr>
 							<th>Date</th>
 							<th>Description</th>
-							<th>Amount</th>
-							<th>Check Book</th>
+							<th>Debit</th>
+							<th>Credit</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>12/4/2018</td>
-							<td>Pembayaran Gaji</td>
-							<td>RM1030.40</td>
-							<td><a href="#">Folio</a></td>
-						</tr>
-					</tbody>
+				<?php 
+
+				$query = "SELECT * FROM ledger";
+				$query_result = mysqli_query($conn, $query);
+
+				while ($row=mysqli_fetch_assoc($query_result)) {
+					
+					$db_date = $row['date'];
+					$db_description = $row['description'];
+					$db_debit = $row['debit'];
+					$db_credit = $row['credit'];
+					
+
+					?>
+					<tr>
+						<td><?php echo $db_date; ?></td>
+						<td><?php echo $db_description; ?></td>
+						<td><?php echo $db_debit; ?></td>
+						<td><?php echo $db_credit; ?></td>
+					</tr>
+					<?php
+				}
+				 ?>
+				
+			</tbody>
 				</table>
 			</div>
 		</div>
