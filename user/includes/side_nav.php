@@ -32,6 +32,8 @@
                 </ul>
                 <!-- <a href="index.php?page=financial_account"><i class="fa fa-table fa-fw"></i> Financial Account</a> -->
             </li>
+
+            
             
             <li>
                 <a href="index.php?page=manage_employee"><i class="fa fa-edit fa-fw"></i> Manage Employee</a>
