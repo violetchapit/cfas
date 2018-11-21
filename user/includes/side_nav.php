@@ -17,7 +17,20 @@
             </li>
 
             <li>
-                <a href="index.php?page=financial_account"><i class="fa fa-table fa-fw"></i> Financial Account</a>
+                <a href="#"><i class="fa fa-table fa-fw"></i> Financial Account<span class="fa arrow"></span></a>
+
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="index.php?page=financial_account">Ledger</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Invoice</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Check Book</a>
+                    </li>
+                </ul>
+                <!-- <a href="index.php?page=financial_account"><i class="fa fa-table fa-fw"></i> Financial Account</a> -->
             </li>
             
             <li>
