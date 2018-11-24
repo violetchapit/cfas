@@ -27,7 +27,7 @@
                         <a href="morris.html">Invoice</a>
                     </li>
                     <li>
-                        <a href="morris.html">Check Book</a>
+                        <a href="index.php?page=checkbooktable">Check Book</a>
                     </li>
                 </ul>
                 <!-- <a href="index.php?page=financial_account"><i class="fa fa-table fa-fw"></i> Financial Account</a> -->

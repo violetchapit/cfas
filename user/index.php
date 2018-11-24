@@ -28,14 +28,22 @@
                     case 'financial_account':
                         include('includes/financial_account.php');
                         break;    
-                    
+
+                    case 'checkbooktable':
+                        include('includes/checkbooktable.php');
+                        break;
+
                     case 'manage_employee':
                         include('includes/manage_employee.php');
                         break;
 
                     case 'edit_ledgertable':
                          include('includes/edit_ledgertable.php');
-                         break;     
+                         break;
+
+                    case 'edit_checkbooktable':
+                        include('includes/edit_checkbooktable.php');
+                        break;
 
                     case 'view_report':
                         include('includes/view_report.php');
