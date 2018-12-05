@@ -25,6 +25,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $db_username = $row['username'];
     $db_password = $row['password'];
     $db_email = $row['email'];
+    $db_role = $row['role'];
   }
 
   if ($username === $db_username && $password === $db_password) {
@@ -32,6 +33,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $_SESSION['id'] = $db_id;
     $_SESSION['user'] = $db_username;
     $_SESSION['email'] = $db_email;
+    $_SESSION['role'] = $db_role;
 
     header("location:user/index.php");
   } else {

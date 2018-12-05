@@ -22,8 +22,10 @@
 	                        </li>  
 	                    </ul>
 	                </div>
-				            </div>
+				   </div>
 				</div>
+			
+
 				<div class="panel-body">
 				<table class="table table-bordered">
 					<thead>

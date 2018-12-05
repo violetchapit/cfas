@@ -114,7 +114,9 @@
                             <div class="panel-body">
 
                                 <?php 
-                                $query = "SELECT * FROM banks";
+                                $uid = $_SESSION['id'];
+
+                                $query = "SELECT * FROM banks WHERE uid=$uid";
                                 $result = mysqli_query($conn, $query);
 
                                 while ($row=mysqli_fetch_assoc($result)) {

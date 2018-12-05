@@ -37,6 +37,14 @@
                         include('includes/manage_employee.php');
                         break;
 
+                    case 'invoice_table':
+                        include('includes/invoice_table.php');
+                        break;
+
+                    case 'invoice':
+                        include('includes/invoice.php');
+                        break;    
+
                     case 'edit_ledgertable':
                          include('includes/edit_ledgertable.php');
                          break;

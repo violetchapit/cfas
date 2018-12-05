@@ -1,5 +1,5 @@
 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Contractor Financial Accounting System - <?php echo $_SESSION['user']; ?></a>
+                    <a class="navbar-brand" href="index.html">Contractor Financial Accounting System - <?php echo $_SESSION['role']; ?> <?php echo $_SESSION['user']; ?></a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

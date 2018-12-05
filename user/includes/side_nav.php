@@ -20,24 +20,49 @@
                 <a href="#"><i class="fa fa-table fa-fw"></i> Financial Account<span class="fa arrow"></span></a>
 
                 <ul class="nav nav-second-level">
+
+                    <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'contractor'): ?>
                     <li>
                         <a href="index.php?page=financial_account">Ledger</a>
                     </li>
                     <li>
-                        <a href="morris.html">Invoice</a>
+                        <a href="index.php?page=invoice_table">Invoice</a>
                     </li>
                     <li>
                         <a href="index.php?page=checkbooktable">Check Book</a>
                     </li>
+                    <?php else: ?>
+
+                        <li>
+                        <a href="index.php?page=checkbooktable">Check Book</a>
+                    </li>
+
+                <?php endif; ?>
                 </ul>
                 <!-- <a href="index.php?page=financial_account"><i class="fa fa-table fa-fw"></i> Financial Account</a> -->
             </li>
 
             
-            
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i> Manage Employee <span class="fa arrow"></span></a>
+
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="index.php?page=financial_account">Contractor</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Project Manager</a>
+                    </li>
+                    <li>
+                        <a href="index.php?page=checkbooktable">Clerk</a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 
+            </li>
             <li>
                 <a href="index.php?page=manage_employee"><i class="fa fa-edit fa-fw"></i> Manage Employee</a>
-            </li>
+            </li> -->
             <li>
                 <a href="index.php?page=view_report"><i class="fa fa-briefcase fa-fw"></i> View Report</a>
             </li>
