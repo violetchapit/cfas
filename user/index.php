@@ -49,8 +49,24 @@
                          include('includes/edit_ledgertable.php');
                          break;
 
+                    case 'edit_invoicetable':
+                        include('includes/edit_invoicetable.php');
+                        break;
+
                     case 'edit_checkbooktable':
                         include('includes/edit_checkbooktable.php');
+                        break;
+
+                    case 'contractor':
+                        include('includes/contractor.php');
+                        break;
+
+                    case 'projectmanager':
+                        include('includes/projectmanager.php');
+                        break;
+
+                    case 'clerk':
+                        include('includes/clerk.php');
                         break;
 
                     case 'view_report':

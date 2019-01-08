@@ -48,13 +48,13 @@
 
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="index.php?page=financial_account">Contractor</a>
+                        <a href="index.php?page=contractor">Contractor</a>
                     </li>
                     <li>
-                        <a href="morris.html">Project Manager</a>
+                        <a href="index.php?page=projectmanager">Project Manager</a>
                     </li>
                     <li>
-                        <a href="index.php?page=checkbooktable">Clerk</a>
+                        <a href="index.php?page=clerk">Clerk</a>
                     </li>
                 </ul>
             </li>
@@ -62,10 +62,11 @@
             </li>
             <li>
                 <a href="index.php?page=manage_employee"><i class="fa fa-edit fa-fw"></i> Manage Employee</a>
-            </li> -->
+            </li> 
             <li>
                 <a href="index.php?page=view_report"><i class="fa fa-briefcase fa-fw"></i> View Report</a>
             </li>
+            -->
 
             <li>
                 <a href="index.php?page=profile"><i class="fa fa-user fa-fw"></i> Profile</a>

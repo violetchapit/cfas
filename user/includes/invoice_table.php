@@ -5,37 +5,96 @@
 </div>
 
 <div class="panel panel-default">
-            <div class="panel-heading">
-                Invoice
-                <div class="pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle"
-                                data-toggle="dropdown">
-                            Actions
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="index.php?page=edit_invoicetable">Add</a>
-                            </li>  
-                        </ul>
-                     </div>
-                   </div>
-                </div>
-           <br>
-	
-    <head>
-        <title>Invoice</title>
- 
-        <style type="text/css">
+        <div class="panel-heading">
+            Invoice
+            <div class="pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                            data-toggle="dropdown">
+                        Actions
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li><a href="index.php?page=edit_invoicetable">Add</a>
+                        </li>  
+                    </ul>
+                 </div>
+               </div>
+        </div>
 
-        body {
+        <div class="panel-body">
+             <fieldset>
+        <div class="invoice">
+            <div class="company-address">
+                PC Bina ENTERPRISE
+                <br />
+                NO 44B - 2B, JALAN PANDAN CAHAYA 2/2,
+                <br />
+                TAMAN PANDAN CAHAYA, 68000 
+                <br />
+                AMPANG SELANGOR
+                <br />
+            </div>
+            
+            <div class="invoice-details">
+                Invoice Number:
+                <input type="text" name="invoice_number" class="form-control">
+                <br />
+                Date:
+                <br>
+                <input type="text" name="date" class="form-control">
+            </div>
+             
+            <div class="customer-address">
+                Customer Address:
+                <br>
+                <textarea rows="4" cols="50" name="customer_address" form="usrform" class="form-control" ></textarea>
+            </div>
+             
+            <div class="clear-fix"></div>
+                <table border='1' cellspacing='0' class="table table-bordered">
+                    <tr >
+                        <th width=250>Description</th>
+                        <th width=80>Amount</th>
+                        <th width=100>Total price</th>
+                    </tr>
+                        
+     
+                <?php 
+
+                $query = "SELECT * FROM invoice";
+                $query_result = mysqli_query($conn, $query);
+
+                while ($row=mysqli_fetch_assoc($query_result)) {
+        
+                    $db_description = $row['description'];
+                    $db_amount = $row['amount'];
+                    $db_total = $row['total'];
+
+                    ?>
+                    <tr>
+                        <td><?php echo $db_description; ?></td>
+                        <td><?php echo $db_amount; ?></td>
+                        <td><?php echo $db_total; ?></td>
+                    </tr>
+                    <?php
+                }
+                 ?>
+                </table>
+            </div>
+        </fieldset>
+        </div>
+</div>
+
+<style type="text/css">
+ body {
             align: center;
         }
 
         div.invoice {
         border:2px solid #ccc;
         padding:10px;
-        height:740pt;
+        /*        height:740pt;*/
         width:570pt;
         }
  
@@ -85,54 +144,14 @@
         .text-right {
             text-align:right;
         }
-         
-        </style>
-    </head>
+            
+
+</style>
+      
+	
+   
  
-    <body >
-    <fieldset>
-        <div class="invoice">
-            <div class="company-address">
-                PC Bina ENTERPRISE
-                <br />
-                NO 44B - 2B, JALAN PANDAN CAHAYA 2/2,
-                <br />
-                TAMAN PANDAN CAHAYA, 68000 
-                <br />
-                AMPANG SELANGOR
-                <br />
-            </div>
-         
-            <div class="invoice-details">
-                Invoice Number:
-                <input type="text" name="invoice_number" class="form-control">
-                <br />
-                Date:
-                <br>
-                <input type="text" name="date" class="form-control">
-            </div>
-             
-            <div class="customer-address">
-                Customer Address:
-                <br>
-                <textarea rows="4" cols="50" name="customer_address" form="usrform" class="form-control" ></textarea>
-            </div>
-             
-            <div class="clear-fix"></div>
-                <table border='1' cellspacing='0' class="table table-bordered">
-                    <tr >
-                        <th width=250>Description</th>
-                        <th width=80>Amount</th>
-                        <th width=100>Total price</th>
-                    </tr>
-                    <tr>
-                        <th><input type="text" name="description" class="form-control"></th>
-                        <th><input type="text" name="amount"  class="form-control"></th>
-                        <th><input type="text" name="total_price"  class="form-control"></th>
-                    </tr>
-     
-                
-                </table>
-            </div>
-        </fieldset>
-    </body>
+    
+
+
+
